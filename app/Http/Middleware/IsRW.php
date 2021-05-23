@@ -3,8 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Request;
 
-class IsAdmin
+class IsRW
 {
     /**
      * Handle an incoming request.
@@ -13,12 +14,12 @@ class IsAdmin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->is_admin == 2) {
+        if (auth()->user()->is_admin == 3) {
             return $next($request);
         }
 
-        return redirect(‘home’)->with(‘error’, "You don't have RT access.");
+        return redirect(‘ / auth / login’)->with(‘error’, "You don't have admin access.");
     }
 }
