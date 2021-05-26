@@ -20,6 +20,6 @@ class IsSekretaris
             return $next($request);
         }
 
-        return redirect(‘ / auth / login’)->with(‘error’, "You don't have admin access.");
+        return redirect(‘ / auth / login’)->with(‘error’, "You don't have sekretaris access.");
     }
 }
